@@ -44,18 +44,15 @@ action:
 - variables:
     command: '{{ trigger.event.data.command }}'
     cluster_id: '{{ trigger.event.data.cluster_id }}'
-    endpoint_id: '{{ trigger.event.data.endpoint_id }}'
     args: '{% if trigger.event.data.args[0] == 0 %} 0 {% elif trigger.event.data.args[0] == 1 %} 1 {% elif trigger.event.data.args[0] == 3 %} 3 {% endif %}'
 - choose:
   - conditions:
     - '{{ command == ''toggle'' }}'
     - '{{ cluster_id == 6 }}'
-    - '{{ endpoint_id == 1 }}'
     sequence: !input 'single_press'
   - conditions:
     - '{{ command == ''step'' }}'
     - '{{ cluster_id == 8 }}'
-    - '{{ endpoint_id == 1 }}'
     - '{{ args == 0 }}'
     sequence:
     - repeat:
@@ -71,7 +68,6 @@ action:
   - conditions:
     - '{{ command == ''step'' }}'
     - '{{ cluster_id == 8 }}'
-    - '{{ endpoint_id == 1 }}'
     - '{{ args == 1 }}'
     sequence:
     - repeat:
@@ -87,7 +83,6 @@ action:
   - conditions:
     - '{{ command == ''step_color_temp'' }}'
     - '{{ cluster_id == 768 }}'
-    - '{{ endpoint_id == 1 }}'
     - '{{ args == 1 }}'
     sequence:
     - repeat:
@@ -103,7 +98,6 @@ action:
   - conditions:
     - '{{ command == ''step_color_temp'' }}'
     - '{{ cluster_id == 768 }}'
-    - '{{ endpoint_id == 1 }}'
     - '{{ args == 3 }}'
     sequence:
     - repeat:
