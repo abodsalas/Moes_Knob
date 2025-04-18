@@ -17,7 +17,7 @@ blueprint:
       selector:
         device:
           integration: zha
-          manufacturer: _TZ3000_4fjiwweb
+#          manufacturer: _TZ3000_4fjiwweb
           model: TS004F
     light:
       name: Light(s)
